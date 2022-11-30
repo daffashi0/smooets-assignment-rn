@@ -9,6 +9,10 @@ export const styles = StyleSheet.create({
   label: {
     color: '#000000',
   },
+  title: {
+    color: '#000000',
+    marginTop: 10,
+  },
   textInput: {
     color: '#000000',
     borderColor: '#000000',
