@@ -8,7 +8,6 @@ export type User = {
   created_at: string;
   updated_at: string;
   phone: string;
-  expires_in: number;
 };
 
 export type UserState = {
@@ -17,6 +16,8 @@ export type UserState = {
   token_type: string;
   loading: boolean;
   error: boolean;
+  expires_in?: number | null;
+  isAuth: boolean;
 };
 
 const initialState: UserState = {
@@ -25,12 +26,30 @@ const initialState: UserState = {
   token_type: '',
   loading: false,
   error: false,
+  isAuth: false,
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload.user;
+      state.token = action.payload.access_token;
+      state.token_type = action.payload.token_type;
+      state.expires_in = action.payload.expires_in;
+      state.isAuth = true;
+    },
+    setUserLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setUserError: (state, action) => {
+      state.error = action.payload;
+    },
+    logout: () => initialState,
+  },
 });
+
+export const {setUser, setUserError, setUserLoading} = userSlice.actions;
 
 export default userSlice.reducer;
