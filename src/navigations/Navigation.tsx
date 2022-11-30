@@ -10,11 +10,13 @@ import HomeScreen from '../screens/Home';
 import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
 import RegisterScreen from '../screens/Register';
+import ResetPasswordScreen from '../screens/ResetPassword';
 import {RootState} from '../store';
 
 export type RootStackParamList = {
   Register: {} | undefined;
   Login: {} | undefined;
+  ResetPassword: {} | undefined;
   Home: {} | undefined;
   Profile: {} | undefined;
   EditProfile: {} | undefined;
@@ -44,6 +46,11 @@ const Navigation = () => {
           }}>
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen
+            name="ResetPassword"
+            component={ResetPasswordScreen}
+            options={{title: 'Reset Password'}}
+          />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator

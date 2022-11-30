@@ -84,6 +84,17 @@ const LoginScreen = ({navigation}: NavigationProp) => {
           Register Here
         </Text>
       </View>
+      <View style={{alignItems: 'center', marginTop: 20}}>
+        <Text variant="titleMedium" style={[styles.label, {marginBottom: 20}]}>
+          or
+        </Text>
+        <Text
+          variant="titleMedium"
+          style={styles.label}
+          onPress={() => navigation.navigate('ResetPassword')}>
+          Reset password
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };
