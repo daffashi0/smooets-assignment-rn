@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/native-stack';
 import React from 'react';
 import {useSelector} from 'react-redux';
+import EditProfileScreen from '../screens/EditProfile';
 import HomeScreen from '../screens/Home';
 import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   Login: {} | undefined;
   Home: {} | undefined;
   Profile: {} | undefined;
+  EditProfile: {} | undefined;
 };
 
 export type NavigationStackProp = NativeStackNavigationProp<RootStackParamList>;
@@ -56,6 +58,13 @@ const Navigation = () => {
           }}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
+          <Stack.Screen
+            name="EditProfile"
+            component={EditProfileScreen}
+            options={{
+              title: 'Edit Profile',
+            }}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

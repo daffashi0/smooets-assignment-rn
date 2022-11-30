@@ -7,10 +7,6 @@ axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 
 axios.interceptors.request.use(
   config => {
-    //   const user = getUserState();
-    //   if (user && !axios.defaults.headers.Authorization) {
-    //     config.headers!.Authorization = `Bearer ${user.token}`;
-    //   }
     return config;
   },
   error => {

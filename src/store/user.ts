@@ -40,6 +40,10 @@ export const userSlice = createSlice({
       state.expires_in = action.payload.expires_in;
       state.isAuth = true;
     },
+    updateUser: (state, action) => {
+      state.user.name = action.payload.name;
+      state.user.phone = action.payload.phone;
+    },
     setUserLoading: (state, action) => {
       state.loading = action.payload;
     },
@@ -50,6 +54,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const {setUser, setUserError, setUserLoading} = userSlice.actions;
+export const {setUser, updateUser, setUserError, setUserLoading, logout} =
+  userSlice.actions;
 
 export default userSlice.reducer;
